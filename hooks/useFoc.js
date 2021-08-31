@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react'
 
-const GRAVITY = 980.665
-const INCHTOCM = 2.54
-
-function toCm( inch ){ return inch*INCHTOCM }
-
 function calculateCOG( arrowIn, pointGr, shaftGr ){
   return (
     (shaftGr * (arrowIn/2)) / (pointGr+shaftGr)
@@ -12,8 +7,7 @@ function calculateCOG( arrowIn, pointGr, shaftGr ){
 }
 
 function calculateFOC( arrowIn, cog ){
-  const l = arrowIn
-  return Math.round(100000 * ((l/2) - cog) / l) / 1000
+  return Math.round(100000 * ((arrowIn/2) - cog) / arrowIn) / 1000
 }
 
 function calculate( arrowIn, pointGr, shaftGr ){
@@ -24,7 +18,7 @@ function calculate( arrowIn, pointGr, shaftGr ){
 }
 
 // simplification of all the above
-const calc = (shaftGr, pointGr) =>  {
+export const calc = (shaftGr, pointGr) =>  {
   const focFraction = 0.5 * (1 - ((shaftGr) / (pointGr+shaftGr)))
 
   // rounding to 3 digits
