@@ -97,7 +97,7 @@ export default function NgitungGpp() {
           label="GPP" />
 
         <div className="result">
-          <h3>Gramasi Arrow: {arrowGr ? `${arrowGr} gr` : 'ngga tau'}</h3>
+          <h3>Estimasi gramasi Arrow: {arrowGr ? `${arrowGr} gr` : 'ngga tau'}</h3>
         </div>
 
       </div>
