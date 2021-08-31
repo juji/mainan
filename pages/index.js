@@ -14,10 +14,11 @@ export default function Home() {
         <h2>hanya mainan</h2>
 
         <hr />
-        
+
         <div className="menu">
           <h3>Menu</h3>
           <p><Link href="/ngitung-foc"><a>Ngitung FOC</a></Link></p>
+          <p><Link href="/ngitung-gpp"><a>Ngitung GPP</a></Link></p>
         </div>
 
     </div>
