@@ -42,7 +42,7 @@ export default function NgitungFoc() {
     <Container>
 
       <div className="title">
-        <Link href="/ngitung-foc"><a>&lt; home</a></Link>
+        <Link href="/"><a>&lt; home</a></Link>
         <h1>Ngitung FOC</h1>
       </div>
 
