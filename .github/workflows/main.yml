@@ -31,8 +31,12 @@ jobs:
         run: yarn export
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
+      - name: Add CNAME file
+        run: touch ./out/CNAME
+      - name: write CNAME file
+        run: echo 'mainan.jujiyangasli.com' > ./out/CNAME
       - name: Deploy
-        uses: juji/mainan
+        uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
           folder: out
