@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 
 import useFoc from 'hooks/useFoc'
 import useFindFoc from 'hooks/useFindFoc'
+import useFindPoint from 'hooks/useFindPoint'
 
 const Container = styled.div`
 
@@ -52,6 +53,12 @@ export default function NgitungFoc() {
     focPair
   } = useFindFoc()
 
+  const {
+    shaftGr: shaftGrPoint,
+    onShaftGrChange: onShaftGrChangePoint,
+    focPair: focPairPoint
+  } = useFindPoint()
+
   // kickstart
 
   return <>
@@ -68,7 +75,7 @@ export default function NgitungFoc() {
       <div className="box">
 
         <h3>Kasus Pertama</h3>
-        <p>Saya punya shaft beratnya sekian... Kalo pake point sekian gram, FOC nya berapa?</p>
+        <p>Dengan berat shaft dan berat point <i>sekian</i>, FOC nya berapa?</p>
 
         <TextField
           value={shaftGr}
@@ -105,7 +112,10 @@ export default function NgitungFoc() {
       <div className="box">
 
         <h3>Kasus Kedua</h3>
-        <p>Saya pengen punya arrow total sekian gram, untuk dapet FOC yang saya mau, berat point dan shaft berapa?</p>
+        <p>
+          Saya pengen punya arrow dengan berat total <i>sekian</i> gram.
+          Untuk dapet FOC yang saya mau, berapa berat point dan shaft?
+        </p>
 
         <TextField
           value={arrowGr}
@@ -135,6 +145,48 @@ export default function NgitungFoc() {
 
                 return <tr key={`${JSON.stringify(v)}`}>
                   <td>{v.shaft}</td>
+                  <td>{v.point}</td>
+                  <td>{v.foc}</td>
+                </tr>
+
+              })}
+            </tbody>
+          </table> : null}
+        </div>
+
+      </div>
+
+      <div className="box">
+
+        <h3>Kasus Ketiga</h3>
+        <p>Saya punya shaft <i>sekian</i> gram. Untuk FOC <i>sekian</i>, pointnya berapa gram?</p>
+
+        <TextField
+          value={shaftGrPoint}
+          onChange={onShaftGrChangePoint}
+          inputProps={{
+            type: 'number',
+            step: '0.01'
+          }}
+          classes={{root: 'input'}}
+          fullWidth={true}
+          variant="outlined"
+          helperText={"tanpa poin, dalam gram"}
+          label="Berat shaft" />
+
+        <div className="result">
+          <h3>Estimasi FOC menurut point: {focPairPoint ? `` : 'ngga tau'}</h3>
+          { focPairPoint && focPairPoint.length ? <table className="table">
+            <thead>
+              <tr>
+                <th>Point (gr)</th>
+                <th>FOC %</th>
+              </tr>
+            </thead>
+            <tbody>
+              {focPairPoint.map(v => {
+
+                return <tr key={`${JSON.stringify(v)}`}>
                   <td>{v.point}</td>
                   <td>{v.foc}</td>
                 </tr>
