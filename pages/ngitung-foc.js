@@ -74,19 +74,6 @@ export default function NgitungFoc() {
           helperText={"dalam gram"}
           label="Berat point" />
 
-        <TextField
-          value={arrowIn}
-          onChange={onArrowInChange}
-          inputProps={{
-            type: 'number',
-            step: '0.01'
-          }}
-          classes={{root: 'input'}}
-          fullWidth={true}
-          variant="outlined"
-          helperText={"dengan point, dalam inch"}
-          label="Panjang arrow" />
-
         <div className="result">
           <h3>Estimasi FOC: {foc ? `${foc}%` : 'ngga tau'}</h3>
         </div>

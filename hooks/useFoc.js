@@ -23,6 +23,14 @@ function calculate( arrowIn, pointGr, shaftGr ){
   )
 }
 
+// simplification of all the above
+const calc = (shaftGr, pointGr) =>  {
+  const focFraction = 0.5 * (1 - ((shaftGr) / (pointGr+shaftGr)))
+
+  // rounding to 3 digits
+  return Math.round( 100000 * focFraction )  / 1000
+}
+
 export default function useFoc(){
 
 
@@ -36,9 +44,10 @@ export default function useFoc(){
   const onpointGrChange = e => setPointGr(e.target.value*1)
 
   useEffect(() => {
-    if(shaftGr && pointGr && arrowIn)
-      setFoc( calculate( arrowIn, pointGr, shaftGr ) )
-  },[ arrowIn, pointGr, shaftGr ])
+    if(shaftGr && pointGr)
+      setFoc( calc( shaftGr, pointGr ) )
+
+  },[ pointGr, shaftGr ])
 
   return {
     foc,
