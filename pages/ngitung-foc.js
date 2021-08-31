@@ -159,7 +159,7 @@ export default function NgitungFoc() {
       <div className="box">
 
         <h3>Kasus Ketiga</h3>
-        <p>Saya punya shaft <i>sekian</i> gram. Untuk FOC <i>sekian</i>, pointnya berapa gram?</p>
+        <p>Saya punya shaft <i>sekian</i> gram. Berapa gram point yang saya butuh?</p>
 
         <TextField
           value={shaftGrPoint}
