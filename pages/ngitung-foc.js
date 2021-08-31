@@ -10,8 +10,6 @@ import useFindFoc from 'hooks/useFindFoc'
 
 const Container = styled.div`
 
-  margin-bottom: 55px;
-
   .box{
     padding: 34px;
     border: 1px solid #aeaeae;
