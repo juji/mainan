@@ -33,6 +33,7 @@ export default function NgitungFoc() {
     onpointGrChange
   } = useFoc()
 
+  // kickstart
 
   return <>
     <Head>
